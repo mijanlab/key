@@ -1,21 +1,34 @@
 # Access
 
-Add my SSH key to any server with one command. Run it on the server:
+Add my SSH key to any server. Run on the server (click the copy button on each block):
+
+## New VM (all keys)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- <name>
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- all
 ```
+## home
 
-| Name | Command |
-|------|---------|
-| **all** (new VM) | `curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh \| bash -s -- all` |
-| home | `curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh \| bash -s -- home` |
-| office | `curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh \| bash -s -- office` |
-| ios | `curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh \| bash -s -- ios` |
-| hermes | `curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh \| bash -s -- hermes` |
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- home
+```
+## office
 
-Safe to re-run: the key is only added once.
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- office
+```
+## ios
+
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- ios
+```
+## hermes
+
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- hermes
+```
+Safe to re-run: a key is only added once.
 
 ## Adding a new key
 
-Add one `name|public key` line to `KEYS` in `access.sh`, then add a row to the table above.
+Add one `name|public key` line to `KEYS` in `access.sh`, then add a block above.
