@@ -1,5 +1,6 @@
 #!/bin/bash
 # Usage: curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- <name|all>
+#        curl ... | bash -s -- remove <name>
 # To add a new key: add one "name|public key" line below, then add its command to README.md.
 
 KEYS='
@@ -17,13 +18,19 @@ else
 fi
 
 NAMES=$(echo "$KEYS" | grep '|' | cut -d'|' -f1)
+MODE=add
+if [ "$1" = "remove" ]; then MODE=remove; shift; fi
 NAME="$1"
 
 echo
 echo "  ${B}${C}Pro Cloudify${N} ${D}· SSH Access${N}"
 echo "  ${D}──────────────────────────────${N}"
 
-if [ "$NAME" = "all" ]; then
+if [ "$MODE" = "remove" ] && [ "$NAME" = "all" ]; then
+  echo "  ${R}✗${N} Refusing 'remove all' (could lock you out). Remove keys one by one."
+  echo
+  exit 1
+elif [ "$NAME" = "all" ]; then
   SELECTED="$NAMES"
 elif echo "$NAMES" | grep -qx "$NAME"; then
   SELECTED="$NAME"
@@ -41,6 +48,18 @@ chmod 600 ~/.ssh/authorized_keys
 
 for K in $SELECTED; do
   KEY=$(echo "$KEYS" | grep "^$K|" | cut -d'|' -f2-)
+  if [ "$MODE" = "remove" ]; then
+    if grep -qF "$KEY" ~/.ssh/authorized_keys; then
+      grep -vF "$KEY" ~/.ssh/authorized_keys > ~/.ssh/authorized_keys.tmp
+      cat ~/.ssh/authorized_keys.tmp > ~/.ssh/authorized_keys && rm -f ~/.ssh/authorized_keys.tmp
+      printf "  ${R}✗${N} Removed            ${B}%-8s${N}
+" "$K"
+    else
+      printf "  ${Y}●${N} Not installed      ${B}%-8s${N}
+" "$K"
+    fi
+    continue
+  fi
   if grep -qF "$KEY" ~/.ssh/authorized_keys; then
     STATUS="${Y}●${N} Already installed"
   else

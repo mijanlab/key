@@ -33,6 +33,14 @@ curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- mimi
 ```
 
+## Remove a key
+
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- remove mimi
+```
+
+Replace `mimi` with any name. `remove all` is blocked so you can't lock yourself out.
+
 Safe to re-run: a key is only added once.
 
 ## Adding a new key
