@@ -27,6 +27,12 @@ curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- hermes
 ```
+## mimi
+
+```bash
+curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- mimi
+```
+
 Safe to re-run: a key is only added once.
 
 ## Adding a new key

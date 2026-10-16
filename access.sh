@@ -7,6 +7,7 @@ home|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhFnsZEj3hobSCHPKM5nBe5pe5JpMBZLkclhs/
 office|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJDr0NzVQIXILM0AN/Fq6sJQDzylZBteK4blpGvrYzOi azuread\mijanurrahman@DESKTOP-GU545CC
 ios|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDIuCvdGaodeKgn9cRLndpx8s4uuJ9qV11bsHF4aJ1XF root@localhost
 hermes|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOYaOXwIYWDTMPgAiPZwfTLDnnLa+Te02AXUACvP5C5 hermes-agent-vps
+mimi|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPizIlnZKIa4zminbUC3mEn3u0/kDixPVAz9sAVMMDVX dev@code-vm
 '
 
 if [ -t 1 ]; then
