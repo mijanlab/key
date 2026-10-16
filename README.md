@@ -1,33 +1,40 @@
 # Access
 
-Add my SSH key to any server. Run on the server (click the copy button on each block):
+Install my SSH public keys on any Linux server with one command. Run it on the server; each block has a copy button.
 
-## New VM (all keys)
+## New VM: install all keys
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- all
 ```
-## home
+
+## Install one key
+
+**home** (Home PC)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- home
 ```
-## office
+
+**office** (Office desk (Windows))
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- office
 ```
-## ios
+
+**ios** (iOS)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- ios
 ```
-## hermes
+
+**hermes** (Hermes agent VPS)
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- hermes
 ```
-## mimi
+
+**mimi** (Code VM (dev@code-vm))
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- mimi
@@ -39,10 +46,15 @@ curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -
 curl -sSL https://raw.githubusercontent.com/mijanlab/key/main/access.sh | bash -s -- remove mimi
 ```
 
-Replace `mimi` with any name. `remove all` is blocked so you can't lock yourself out.
+Replace `mimi` with any key name. `remove all` is blocked so you can't lock yourself out.
 
-Safe to re-run: a key is only added once.
+## Notes
+
+- Safe to re-run: a key is only added once.
+- Output shows each key's status and fingerprint, plus the server, user and an `ssh user@ip` line.
+- Don't remove the key you are currently logged in with.
 
 ## Adding a new key
 
-Add one `name|public key` line to `KEYS` in `access.sh`, then add a block above.
+1. Add one `name|public key` line to `KEYS` in `access.sh`.
+2. Add a block for it under "Install one key" above.
